@@ -1,0 +1,7 @@
+# requirements.txt
+
+# Selenium
+selenium==3.141.0
+
+# WebDriver for Chrome
+chromedriver-autoinstaller==0.2.2
