@@ -23,11 +23,25 @@ input_element = WebDriverWait(driver, 10).until(
 input_element.clear()
 input_element.send_keys("Darth Vader" + Keys.ENTER)
 
-# Wait for up to 10 seconds for a search result link containing "Darth Vader" to be present
+# Wait for up to 10 seconds for a search result link containing "Darth Vader" to be present to later click on it
 link = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, "Darth Vader"))
 )
 
 link.click()
+
+# Wait for up to 10 seconds for the page to load
+WebDriverWait(driver, 10).until(
+    EC.title_contains("Darth Vader")
+)
+
+# Validate that we are on the correct site based on the page title
+expected_title = "Darth Vader - Wikipedia, la enciclopedia libre"
+actual_title = driver.title
+
+if expected_title in actual_title:
+    print("Successfully navigated to the correct site.")
+else:
+    print(f"Unexpected page title. Expected: {expected_title}, Actual: {actual_title}")
 
 driver.quit()
