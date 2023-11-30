@@ -2,6 +2,9 @@
 
 Automate interactions with the Cookie Clicker game using Selenium and Python.
 
+https://orteil.dashnet.org/cookieclicker
+
+
 ## Introduction
 
 - This Python script leverages the Selenium WebDriver to automate interactions with the Cookie Clicker game. It performs automated clicking on the big cookie and purchases products based on a predefined logic.
