@@ -13,5 +13,9 @@ driver = webdriver.Chrome(service=service)
 # Open page and maximize the browser window
 driver.get("https://orteil.dashnet.org/cookieclicker/")
 driver.maximize_window()
+driver.implicitly_wait(10)
 
-time.sleep(5)
+lang_selector = driver.find_element(By.XPATH, '//*[@id="langSelect-EN"]')
+lang_selector.click
+
+driver.implicitly_wait(10)
