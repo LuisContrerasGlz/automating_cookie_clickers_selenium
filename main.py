@@ -10,14 +10,21 @@ service = Service(executable_path="drivers/chromedriver")
 driver = webdriver.Chrome(service=service)
 
 driver.get("https://google.com")
+driver.maximize_window()
 
-WebDriverWait(driver, 5).until(
+WebDriverWait(driver, 2).until(
     EC.presence_of_element_located((By.CLASS_NAME, "gLFyf"))
 )
 
 input_element = driver.find_element(By.CLASS_NAME, "gLFyf")
 input_element.clear()
 input_element.send_keys("Darth Vader" + Keys.ENTER)
+
+WebDriverWait(driver, 2).until(
+    EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, "Darth Vader"))
+)
+link = driver.find_element(By.PARTIAL_LINK_TEXT, "Darth Vader")
+link.click()
 
 time.sleep(5)
 
